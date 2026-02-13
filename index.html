@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Nilesh ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd1dc);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px 20px;
+}
+
+h1, h2 { font-family: "Playfair Display", serif; }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Photo frame */
+.photo-frame {
+  margin: 30px auto;
+  width: 280px;
+  height: 55vh;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 4px solid rgba(255,255,255,0.6);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.music-btn {
+  margin-top: 0px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  background: #ff2f68;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.letter {
+  background: rgba(255,255,255,0.15);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  margin-top: 60px;
+}
+
+.letter p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* Surprise */
+.surprise-section { margin-top: 10px; }
+
+.surprise-btn {
+  padding: 16px 32px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 40px;
+  background: #ff1e56;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+}
+
+.proposal { display: none; margin-top: 40px; }
+
+.proposal h2 { font-size: 2.4rem; margin-bottom: 20px; }
+
+textarea {
+  width: 100%;
+  max-width: 400px;
+  height: 80px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin: 15px 0;
+  font-size: 1rem;
+}
+
+.yes-btn, .no-btn {
+  padding: 12px 26px;
+  font-size: 1.1rem;
+  margin: 10px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.yes-btn { background: #2ecc71; color: #fff; }
+.no-btn { background: #e74c3c; color: #fff; }
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* Glass effect for cards */
+.letter, .proposal, .photo-frame {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Smooth fade-in animation */
+.hero, .letter, .surprise-section {
+  animation: fadeIn 1.2s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button hover / tap effect */
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* Photo subtle zoom animation */
+.photo-frame img {
+  animation: slowZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+/* Scroll down arrow */
+.scroll-indicator {
+  margin-top: 20px;
+  font-size: 2rem;
+  animation: bounce 1.5s infinite;
+  opacity: 0.9;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <!-- Replace song.mp3 with your song file or link -->
+  <source src="newsong.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Hero -->
+<section class="hero container">
+  <h1>For You, my heart ❤️</h1>
+  <p>From Ankiii, with all my heart 💕. <br><small>Tap anywhere to start the magic ✨</small></p>
+
+  <div class="photo-frame">
+    <!-- Replace img1.jpg with your image or link -->
+    <img id="galleryImage" src="assets/image.png" alt="Our memory">
+  </div>
+
+  <button class="music-btn" id="musicBtn">▶</button>
+  <div class="scroll-indicator">
+  <span>👇</span> 
+</div>
+</section>
+
+<!-- Letter -->
+<section class="container">
+  <div class="letter">
+    <h2>A Letter to You 💌</h2>
+    <p>
+      I love the way you make even the simplest moments feel special.
+      You changed my life by bringing happiness, calm, and meaning where I never knew something was missing.
+    </p>
+    <p>
+      With you, I laugh more, I dream bigger, and I feel stronger.
+      You’re not just someone I love — you are home to me.
+    </p>
+    <p>
+      You are special to me in ways I can’t fully explain, but I feel it every single day.
+      And I’m grateful for you. Always. ❤️
+    </p>
+    <p>— Your Ankii</p>
+  </div>
+</section>
+
+<!-- Surprise -->
+<section class="container surprise-section">
+  <button class="surprise-btn" id="surpriseBtn">Click for a Surprise 💖</button>
+
+  <div class="proposal" id="proposalBox">
+    <h2>Will you be my Valentine? 🌹</h2>
+    <textarea id="messageInput" placeholder="Write something for me..."></textarea><br>
+    <button class="yes-btn" id="yesBtn">Yes 💕</button>
+    <button class="no-btn" id="noBtn">No 🙈</button>
+    <p id="responseText" style="margin-top:20px;font-size:1.4rem;"></p>
+    <p id="giftText" style="margin-top:15px;font-size:1.3rem; display:none;">
+  🎁 Your present is on the way! <br>
+  💖 Sorry for 1 day late
+</p>
+  </div>
+</section>
+
+<script>
+/* 🎵 Music */
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+let isPlaying = false;
+
+function startMusic() {
+  music.play().then(() => {
+    musicBtn.textContent = "⏸ Pause Music";
+    isPlaying = true;
+  }).catch(() => {
+    // If browser blocks, user must tap
+  });
+}
+
+// Try to start on first user interaction anywhere
+document.body.addEventListener("click", () => {
+  if (!isPlaying) startMusic();
+}, { once: true });
+
+musicBtn.onclick = () => {
+  if (!isPlaying) {
+    startMusic();
+  } else {
+    music.pause();
+    musicBtn.textContent = "▶ Play Music";
+    isPlaying = false;
+  }
+};
+
+
+/* 🖼️ Image slider */
+const images = ["assets/image.png", "assets/image2.png", "assets/image3.png", "assets/image4.png"];
+let imgIndex = 0;
+const galleryImage = document.getElementById("galleryImage");
+
+setInterval(() => {
+  imgIndex = (imgIndex + 1) % images.length;
+  galleryImage.src = images[imgIndex];
+}, 4000);
+
+/* 💕 Floating hearts */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = "❣️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (16 + Math.random() * 24) + "px";
+  heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 10000);
+}
+setInterval(createHeart, 500);
+
+/* 🎁 Surprise */
+const surpriseBtn = document.getElementById("surpriseBtn");
+const proposalBox = document.getElementById("proposalBox");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const responseText = document.getElementById("responseText");
+
+surpriseBtn.onclick = () => {
+  proposalBox.style.display = "block";
+  proposalBox.scrollIntoView({ behavior: "smooth" });
+};
+
+/* 🎉 Confetti */
+function launchConfetti() {
+  for (let i = 0; i < 150; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDuration = (2 + Math.random() * 2) + "s";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 4000);
+  }
+}
+
+const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSeS6S6DufHjshL-pUK-R4kc2BVHEC3XIoIcevVLuljBmrV01A/formResponse";
+
+function sendToGoogleForm(answer) {
+  const message = document.getElementById("messageInput").value;
+
+  const data = new FormData();
+  data.append("entry.1336818007", answer);      // Yes / No
+  data.append("entry.605924871", message);      // Message
+
+  fetch(formURL, {
+    method: "POST",
+    mode: "no-cors",
+    body: data
+  });
+}
+
+const giftText = document.getElementById("giftText");
+
+yesBtn.onclick = () => {
+  sendToGoogleForm("Yes");
+  responseText.textContent = "You just made me the happiest person ever! 💖🎉";
+  giftText.style.display = "block";
+  launchConfetti();
+};
+
+noBtn.onclick = () => {
+  sendToGoogleForm("No");
+  responseText.textContent = "That’s okay… I still choose you. ❤️";
+  giftText.style.display = "block";
+};
+
+</script>
+
+</body>
+</html>
