@@ -67,16 +67,16 @@ h1, h2 { font-family: "Playfair Display", serif; }
 
 .letter {
   background: rgba(255,255,255,0.15);
-  padding: 40px;
+  padding: 30px;
   border-radius: 20px;
   backdrop-filter: blur(6px);
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .letter p {
   font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 15px;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 
 /* Surprise */
@@ -95,7 +95,7 @@ h1, h2 { font-family: "Playfair Display", serif; }
 
 .proposal { display: none; margin-top: 40px; }
 
-.proposal h2 { font-size: 2.4rem; margin-bottom: 20px; }
+.proposal h2 { font-size: 2.2rem; margin-bottom: 10px; }
 
 textarea {
   width: 100%;
@@ -196,6 +196,189 @@ button:active {
   100% { transform: translateY(0); }
 }
 
+/* Cinematic card */
+.cinematic-card {
+  display: none;
+  position: relative;
+  margin: 50px auto 0;
+  padding: 40px 25px 35px;
+  max-width: 420px;
+  border-radius: 28px;
+  background: rgba(20, 20, 20, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: cinematicIn 0.8s ease;
+  overflow: hidden;
+}
+
+/* Glowing gradient border */
+.glow-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  padding: 2px;
+  background: linear-gradient(120deg, #ff4d6d, #ffb3c1, #ff4d6d);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Title */
+.cinematic-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Subtitle */
+.cinematic-sub {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+/* Textarea */
+.cinematic-card textarea {
+  width: 100%;
+  height: 90px;
+  border-radius: 16px;
+  border: none;
+  padding: 12px 14px;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+}
+
+/* Buttons row */
+.btn-row {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Buttons style */
+.yes-btn, .no-btn {
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.yes-btn {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #fff;
+}
+
+.no-btn {
+  background: linear-gradient(135deg, #ff5c5c, #e84141);
+  color: #fff;
+}
+
+.yes-btn:hover, .no-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* Response & gift */
+.response-text {
+  margin-top: 22px;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.gift-text {
+  margin-top: 14px;
+  font-size: 1.1rem;
+  display: none;
+}
+
+/* Entry animation */
+@keyframes cinematicIn {
+  from {
+    transform: translateY(30px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+#loveGifOverlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,120,150,0.4), rgba(0,0,0,0.75));
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeInOverlay 0.4s ease;
+}
+
+#loveGifOverlay img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 24px;
+  box-shadow: 0 0 40px rgba(255, 100, 150, 0.8), 0 20px 60px rgba(0,0,0,0.6);
+  animation: hugPop 0.6s ease, hugPulse 1.5s ease-in-out infinite alternate;
+}
+
+/* Animations */
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hugPop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes hugPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.hug-heart {
+  position: fixed;
+  font-size: 22px;
+  animation: heartPop 1.5s ease forwards;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+@keyframes heartPop {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(-120px) scale(1.4); opacity: 0; }
+}
+
+#noGifOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#noGifOverlay img {
+  max-width: 70%;
+  max-height: 70%;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(255, 80, 80, 0.8), 0 20px 50px rgba(0,0,0,0.6);
+  animation: popIn 0.4s ease;
+}
 
 </style>
 </head>
@@ -209,7 +392,7 @@ button:active {
 
 <!-- Hero -->
 <section class="hero container">
-  <h1>For You, my heart ❤️</h1>
+  <h1>For You, my Love ❤️</h1>
   <p>From Ankiii, with all my heart 💕. <br><small>Tap anywhere to start the magic ✨</small></p>
 
   <div class="photo-frame">
@@ -225,40 +408,67 @@ button:active {
 
 <!-- Letter -->
 <section class="container">
-  <div class="letter">
-    <h2>A Letter to You 💌</h2>
-    <p>
-      I love the way you make even the simplest moments feel special.
-      You changed my life by bringing happiness, calm, and meaning where I never knew something was missing.
-    </p>
-    <p>
-      With you, I laugh more, I dream bigger, and I feel stronger.
-      You’re not just someone I love — you are home to me.
-    </p>
-    <p>
-      You are special to me in ways I can’t fully explain, but I feel it every single day.
-      And I’m grateful for you. Always. ❤️
-    </p>
-    <p>— Your Ankii</p>
-  </div>
+ <div class="letter">
+  <h2>A Letter to You 💌</h2>
+  <p>
+    I love the way you make even the simplest moments feel special.
+    You changed my life by bringing happiness, calm, and meaning where I never knew something was missing.
+  </p>
+  <p>
+    With you, I laugh more, I dream bigger, and I feel stronger.
+    You’re not just someone I love — you are my home to me.
+  </p>
+  <p>
+    I may not be perfect, and I may not always say things in the best way,
+    but my heart always chooses you, every single day, without any doubt.
+  </p>
+  <p>
+    You are special to me in ways I can’t fully explain, but I feel it every single day.
+    And I’m grateful for you. Always. ❤️
+  </p>
+  <p>
+    No matter where life takes us, I want you to know that you will always have a very special place in my heart,
+    today, tomorrow, and always.
+  </p>
+  <p>— Your Ankii</p>
+</div>
 </section>
 
 <!-- Surprise -->
 <section class="container surprise-section">
-  <button class="surprise-btn" id="surpriseBtn">Click for a Surprise 💖</button>
+  <button class="surprise-btn" id="surpriseBtn">Open Your Surprise 💌</button>
 
-  <div class="proposal" id="proposalBox">
-    <h2>Will you be my Valentine? 🌹</h2>
-    <textarea id="messageInput" placeholder="Write something for me..."></textarea><br>
-    <button class="yes-btn" id="yesBtn">Yes 💕</button>
-    <button class="no-btn" id="noBtn">No 🙈</button>
-    <p id="responseText" style="margin-top:20px;font-size:1.4rem;"></p>
-    <p id="giftText" style="margin-top:15px;font-size:1.3rem; display:none;">
-  🎁 Your present is on the way! <br>
-  💖 Sorry for 1 day late
-</p>
+  <div class="proposal cinematic-card" id="proposalBox">
+    <div class="glow-border"></div>
+
+    <h2 class="cinematic-title">Will you be my Valentine? 🌹</h2>
+
+    <p class="cinematic-sub">Say something sweet or roast me a little 😅</p>
+
+    <textarea id="messageInput" placeholder="Type your message here..."></textarea>
+
+    <div class="btn-row">
+      <button class="yes-btn" id="yesBtn">Yes 💖</button>
+      <button class="no-btn" id="noBtn">No 🙈</button>
+    </div>
+
+    <p id="responseText" class="response-text"></p>
+
+    <p id="giftText" class="gift-text">
+      🎁 Your present is on the way! <br>
+      💖 Sorry for 1 day late
+    </p>
   </div>
 </section>
+<!-- Love GIF overlay -->
+<div id="loveGifOverlay">
+  <img id="loveGif" src="https://media.tenor.com/F2SQcVd5fMIAAAAj/hug-couple.gif" alt="Hug GIF">
+</div>
+
+<!-- No GIF overlay -->
+<div id="noGifOverlay">
+  <img id="noGif" src="https://media.tenor.com/IjkcwEaDOZMAAAAj/please-please-don%27t-go.gif" alt="Please Don't Go GIF">
+</div>
 
 <script>
 /* 🎵 Music */
@@ -268,7 +478,7 @@ let isPlaying = false;
 
 function startMusic() {
   music.play().then(() => {
-    musicBtn.textContent = "⏸ Pause Music";
+    musicBtn.textContent = "⏸";
     isPlaying = true;
   }).catch(() => {
     // If browser blocks, user must tap
@@ -289,6 +499,19 @@ musicBtn.onclick = () => {
     isPlaying = false;
   }
 };
+
+function burstHearts(count = 20) {
+  for (let i = 0; i < count; i++) {
+    const h = document.createElement("div");
+    h.className = "hug-heart";
+    h.textContent = ["💖","💕","💘","💗","💓"][Math.floor(Math.random()*5)];
+    h.style.left = (50 + (Math.random() * 40 - 20)) + "vw";
+    h.style.top = (50 + (Math.random() * 20 - 10)) + "vh";
+    h.style.fontSize = (18 + Math.random() * 20) + "px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 1500);
+  }
+}
 
 
 /* 🖼️ Image slider */
@@ -357,17 +580,50 @@ function sendToGoogleForm(answer) {
 
 const giftText = document.getElementById("giftText");
 
+// yesBtn.onclick = () => {
+//   sendToGoogleForm("Yes");
+//   responseText.textContent = "You just made me the happiest person ever! 💖🎉";
+//   giftText.style.display = "block";
+//   launchConfetti();
+// };
+const loveGifOverlay = document.getElementById("loveGifOverlay");
+
 yesBtn.onclick = () => {
   sendToGoogleForm("Yes");
-  responseText.textContent = "You just made me the happiest person ever! 💖🎉";
-  giftText.style.display = "block";
-  launchConfetti();
+
+  // Show hug GIF
+  loveGifOverlay.style.display = "flex";
+
+  // Heart bursts while hugging
+  burstHearts(25);
+  const heartInterval = setInterval(() => burstHearts(15), 700);
+
+  // Hide after 3.5 seconds, then show message + confetti
+  setTimeout(() => {
+    clearInterval(heartInterval);
+    loveGifOverlay.style.display = "none";
+
+    responseText.textContent = "You just made me the happiest person ever! 💖🎉";
+    giftText.style.display = "block";
+    launchConfetti();
+  }, 3500);
 };
+
+const noGifOverlay = document.getElementById("noGifOverlay");
 
 noBtn.onclick = () => {
   sendToGoogleForm("No");
-  responseText.textContent = "That’s okay… I still choose you. ❤️";
-  giftText.style.display = "block";
+
+  // Show the "Please Don't Go" GIF
+  noGifOverlay.style.display = "flex";
+
+  // Hide GIF after a few seconds
+  setTimeout(() => {
+    noGifOverlay.style.display = "none";
+
+    responseText.textContent = "That’s okay… I still choose you. ❤️";
+    giftText.style.display = "block";
+  }, 3000);  // 3000ms = 3 seconds
 };
 
 </script>
